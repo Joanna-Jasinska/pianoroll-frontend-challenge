@@ -1,9 +1,9 @@
 import css from "./HeaderBar.module.css";
 export const HeaderBar = () => {
   return (
-    <nav className="navbar">
-      <div className="logo-container">
-        <img src={logo} className="logo" alt="Logo" />
+    <nav className={css.navbar}>
+      <div className={css.logoContainer}>
+        <img src={logo} className={css.logo} alt="Logo" />
       </div>
     </nav>
   );

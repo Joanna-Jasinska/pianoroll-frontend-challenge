@@ -20,21 +20,25 @@ body {
   display: flex;
   flex-direction: column;
   position: relative;
+
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  overflow: auto;
 }
 
-.navbar {
+/* .navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #154151;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* optional drop shadow */
-}
-
-.logo-container img {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+} 
+ .logo-container img {
   height: 40px;
   width: auto;
   fill: white;
-}
+} */
 
 /* #pianoRollContainer {
   display: flex;

@@ -68,7 +68,7 @@ export const PRollsPage = () => {
   }, [reload]);
 
   return (
-    <div>
+    <>
       {isLoading ? (
         // <Loader />
         ""
@@ -83,7 +83,7 @@ export const PRollsPage = () => {
           <PRollList pRolls={pRolls} />
         </>
       )}
-    </div>
+    </>
   );
 };
 
