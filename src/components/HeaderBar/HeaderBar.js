@@ -1,4 +1,6 @@
 import css from "./HeaderBar.module.css";
+import logo from "./../../assets/white.svg";
+
 export const HeaderBar = () => {
   return (
     <nav className={css.navbar}>
