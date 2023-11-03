@@ -1,0 +1,105 @@
+.pianoRollMini {
+  position: relative;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 50%;
+  box-sizing: border-box;
+
+  /* text-align: center;
+  margin: 0;
+  padding: 0; */
+}
+
+.pianoRollSvg {
+  display: block;
+  border: 2px solid #381815;
+  width: 80%;
+  height: 150;
+  /* margin: 0;
+  padding: 0; */
+  box-sizing: border-box;
+}
+.description {
+  background-color: beige;
+}
+
+.hidden {
+  /* display: none; */
+  /* visibility: hidden; */
+}
+
+@keyframes flowing1 {
+  0% {
+    transform: translate(-50%, 0%) scale(2);
+  }
+  25% {
+    transform: translate(-50%, -20%) scale(2);
+  }
+  75% {
+    transform: translate(-50%, 0%) scale(2);
+  }
+  75% {
+    transform: translate(-50%, 20%) scale(2);
+  }
+  100% {
+    transform: translate(-50%, 0%) scale(2);
+  }
+}
+
+@keyframes flowing2 {
+  0% {
+    transform: translate(-50%, 0%) scale(2);
+  }
+  25% {
+    transform: translate(-50%, 20%) scale(2);
+  }
+  75% {
+    transform: translate(-50%, 0%) scale(2);
+  }
+  75% {
+    transform: translate(-50%, -20%) scale(2);
+  }
+  100% {
+    transform: translate(-50%, 0%) scale(2);
+  }
+}
+.loader:before {
+  position: absolute;
+  /* position: sticky;
+  position: relative; */
+  content: "♫ ♩";
+  /* word-spacing: 1em; */
+  animation: flowing1 1.5s linear infinite;
+  display: block;
+  z-index: 10000;
+  font-size: 1.8em;
+  width: 100%;
+  /* top: 0;
+  left: 0; */
+  top: 50%;
+  left: 45%;
+  /* transform: translate(-50%, -50%); */
+  color: #26778f;
+  text-align: center;
+}
+
+.loader::after {
+  position: absolute;
+  /* position: sticky;
+  position: relative; */
+  content: "♪ ♬";
+  /* word-spacing: 1em; */
+  animation: flowing2 1.5s linear infinite;
+  display: block;
+  z-index: 10000;
+  font-size: 1.8em;
+  width: 100%;
+  /* top: 0;
+  left: 0; */
+  top: 50%;
+  left: 55%;
+  /* transform: translate(-50%, -50%); */
+  color: #2e91af;
+  text-align: center;
+}
