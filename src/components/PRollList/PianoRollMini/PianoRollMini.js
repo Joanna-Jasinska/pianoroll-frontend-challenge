@@ -14,6 +14,7 @@ export const PianoRollMini = ({ selectMyself, sequence, id }) => {
   const [editingEnd, setEditingEnd] = useState(selected);
   let markerStart = document.querySelector(`#markerStart${id}`);
   let markerEnd = document.querySelector(`#markerEnd${id}`);
+  let selectionBar = document.querySelector(`#selectionBar${id}`) || false;
 
   const toggleEditingStart = () => {
     setEditingStart(!editingStart);
@@ -66,11 +67,22 @@ export const PianoRollMini = ({ selectMyself, sequence, id }) => {
         markerStart.innerHTML = `${steps}`;
         markerStart.style.left = calculatedX - 1 + "px";
         markerStart.style.transition = "0s";
+        const start = markerStart.getBoundingClientRect();
+        const startX = start.x - start.width + 3;
+        const end = markerEnd.getBoundingClientRect();
+        const endX = end.x;
+        selectionBar.style.left = startX + "px";
+        selectionBar.style.width = Math.max(0, endX - startX) + "px";
       }
       if (editEnd) {
         markerEnd.innerHTML = `${steps}`;
         markerEnd.style.left = calculatedX - 1 + "px";
         markerEnd.style.transition = "0s";
+        const start = markerStart.getBoundingClientRect();
+        const startX = start.x - start.width + 3;
+        const end = markerEnd.getBoundingClientRect();
+        const endX = end.x;
+        selectionBar.style.width = Math.max(0, endX - startX) + "px";
       }
     };
   };
@@ -112,6 +124,12 @@ export const PianoRollMini = ({ selectMyself, sequence, id }) => {
         ) : (
           ""
         )}
+        <div
+          className={
+            selected && !isLoading ? `${css.selectionBar}` : `${css.hidden}`
+          }
+          id={`selectionBar${id}`}
+        ></div>
         <div
           className={
             selected && !isLoading

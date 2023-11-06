@@ -114,6 +114,16 @@
   z-index: 10;
   cursor: pointer;
 }
+.selectionBar {
+  height: 20px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 8;
+  border-bottom: 3px solid #ffcc00d8;
+  background-color: #ffcc0075;
+  background: linear-gradient(0deg, #ffd52b8a 0%, transparent 110%);
+}
 .markerStart {
   border-left: 3px solid #ffcc00d8;
   background-color: #ffcc0075;
@@ -138,5 +148,4 @@
   top: 0;
   right: 30%;
   transform: scale(0.8);
-  background-color: fuchsia;
 }
