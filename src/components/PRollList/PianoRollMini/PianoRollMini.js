@@ -68,9 +68,9 @@ export const PianoRollMini = ({ selectMyself, sequence, id }) => {
         markerStart.style.left = calculatedX - 1 + "px";
         markerStart.style.transition = "0s";
         const start = markerStart.getBoundingClientRect();
-        const startX = start.x - start.width + 3;
+        const startX = start.x + start.width + 3 - square.x;
         const end = markerEnd.getBoundingClientRect();
-        const endX = end.x;
+        const endX = end.x - square.x + start.width * 2;
         selectionBar.style.left = startX + "px";
         selectionBar.style.width = Math.max(0, endX - startX) + "px";
       }
@@ -79,9 +79,9 @@ export const PianoRollMini = ({ selectMyself, sequence, id }) => {
         markerEnd.style.left = calculatedX - 1 + "px";
         markerEnd.style.transition = "0s";
         const start = markerStart.getBoundingClientRect();
-        const startX = start.x - start.width + 3;
+        const startX = start.x + start.width + 3 - square.x;
         const end = markerEnd.getBoundingClientRect();
-        const endX = end.x;
+        const endX = end.x - square.x + start.width * 2;
         selectionBar.style.width = Math.max(0, endX - startX) + "px";
       }
     };
