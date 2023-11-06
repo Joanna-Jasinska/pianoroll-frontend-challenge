@@ -4,6 +4,7 @@ import css from "./PianoRollMini.module.css";
 import PianoRoll from "../../../js/pianoRoll";
 import { useParams } from "react-router";
 import { PIANO_ROLL_LENGTH } from "../../../data/predefined";
+import { Btn } from "../../Btn/Btn";
 
 export const PianoRollMini = ({ selectMyself, sequence, id }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -19,6 +20,32 @@ export const PianoRollMini = ({ selectMyself, sequence, id }) => {
   };
   const toggleEditingEnd = () => {
     setEditingEnd(!editingEnd);
+  };
+  const logSelection = () => {
+    const svg = document.querySelector(`.svg${id}`) || false;
+    if (!svg) return;
+    const square = svg.getBoundingClientRect();
+    const squareX = square.x;
+    const start = markerStart.getBoundingClientRect();
+    const startX = start.x + start.width;
+    const end = markerEnd.getBoundingClientRect();
+    const endX = end.x + end.width;
+    const squareWidth = square.width;
+    const startStep =
+      Math.floor(
+        (Math.max(startX - squareX, 0) * PIANO_ROLL_LENGTH) / squareWidth
+      ) - 1;
+    const endStep =
+      Math.floor(
+        (Math.max(endX - squareX, 0) * PIANO_ROLL_LENGTH) / squareWidth
+      ) - 1;
+    console.log(
+      `Captured notes ${Math.max(
+        0,
+        endStep - startStep + 1
+      )}: (${startStep}-${endStep})`,
+      sequence.slice(startStep, endStep + 1)
+    );
   };
   const followMouse = ({ editStart, editEnd }) => {
     return (e) => {
@@ -78,6 +105,13 @@ export const PianoRollMini = ({ selectMyself, sequence, id }) => {
         } ${selected ? css.selected : ""}`}
         onClick={selected ? () => {} : selectMyself}
       >
+        {selected ? (
+          <div className={css.sideBtnHolder}>
+            <Btn txt="Send" onClick={logSelection} />
+          </div>
+        ) : (
+          ""
+        )}
         <div
           className={
             selected && !isLoading
