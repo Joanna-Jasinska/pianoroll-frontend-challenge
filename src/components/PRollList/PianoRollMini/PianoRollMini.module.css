@@ -132,3 +132,11 @@
 .onTop {
   z-index: 40;
 }
+.sideBtnHolder {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  right: 30%;
+  transform: scale(0.8);
+  background-color: fuchsia;
+}

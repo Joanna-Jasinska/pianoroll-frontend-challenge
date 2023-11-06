@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { FETCH_FROM, NOTE_FILLER, PIANO_ROLL_LENGTH } from "../data/predefined";
 import { PRollList } from "../components/PRollList/PRollList";
-import { LoadPRollsBtn } from "../components/LoadPRollsBtn/LoadPRollsBtn";
+import { Btn } from "../components/Btn/Btn";
 
 async function loadPianoRollData() {
   try {
@@ -68,7 +68,8 @@ export const PRollsPage = () => {
       ) : (
         <>
           <div id="buttonContainer">
-            <LoadPRollsBtn
+            <Btn
+              txt={"Load Piano Rolls!"}
               onClick={() => {
                 setReload(true);
               }}
