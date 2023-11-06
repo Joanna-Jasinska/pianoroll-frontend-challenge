@@ -1,16 +1,19 @@
+import { PropTypes } from "prop-types";
 import css from "./LoadPRollsBtn.module.css";
-import { PianoRollDisplay } from "../../js/pianoRollDisplay";
 
-const onClick = async () => {
-  const csvToSVG = new PianoRollDisplay();
-  console.log(`--------piano.js------generating svg---`);
-  await csvToSVG.generateSVGs();
-};
-
-export const LoadPRollsBtn = () => {
+export const LoadPRollsBtn = ({ onClick }) => {
   return (
-    <button id="loadCSV" type="button" className={css.loadPRollsBtn} onClick={onClick}>
+    <button
+      id="loadCSV"
+      type="button"
+      className={css.loadPRollsBtn}
+      onClick={onClick}
+    >
       Load Piano Rolls!
     </button>
   );
+};
+
+LoadPRollsBtn.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };

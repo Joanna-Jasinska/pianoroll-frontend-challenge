@@ -1,4 +1,4 @@
-import PianoRoll from "./pianoroll.js";
+import PianoRoll from "./pianoRoll.js";
 
 export class PianoRollDisplay {
   constructor(csvURL) {
@@ -43,7 +43,6 @@ export class PianoRollDisplay {
     if (!this.data) await this.loadPianoRollData();
     if (!this.data) return;
 
-    console.log(`--------generateSVGs---------`);
     const pianoRollContainer = document.getElementById("pianoRollContainer");
     pianoRollContainer.innerHTML = "";
     for (let it = 0; it < 20; it++) {
@@ -56,6 +55,5 @@ export class PianoRollDisplay {
       pianoRollContainer.appendChild(cardDiv);
       const roll = new PianoRoll(svg, partData);
     }
-    console.log(`--------generateSVGs------end---`);
   }
 }

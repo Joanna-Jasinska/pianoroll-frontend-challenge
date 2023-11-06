@@ -1,20 +1,18 @@
-/* .loadPRollsBtn{} */
-/* button {
-    padding: 15px 25px;
-    font-size: 18px;
-    color: #F0F0F0;
-    background-color: #944038;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 5px;
-  } */
-/* button {
-    border-bottom: 3px solid #381815; 
-    position: relative;  
-    transition: all 1.1s ease;  
-  }
-
+.loadPRollsBtn {
+  padding: 15px 25px;
+  font-size: 18px;
+  color: #f0f0f0;
+  background-color: #944038;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border-radius: 5px;
+}
+button {
+  border-bottom: 3px solid #381815;
+  position: relative;
+  transition: all 1.1s ease;
+}
 button:hover {
-    transform: scale(1.05);
-  } */
+  transform: scale(1.05);
+}

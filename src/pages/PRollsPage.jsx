@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { FETCH_FROM, NOTE_FILLER, PIANO_ROLL_LENGTH } from "../data/predefined";
 import { PRollList } from "../components/PRollList/PRollList";
 import { LoadPRollsBtn } from "../components/LoadPRollsBtn/LoadPRollsBtn";
-import { Loader } from "../components/Loader/Loader";
 
 async function loadPianoRollData() {
   try {
@@ -28,10 +27,6 @@ const separatePRolls = (data) => {
     while (partData.length < PIANO_ROLL_LENGTH) {
       partData.push(NOTE_FILLER);
     }
-    // const { cardDiv, svg } = this.preparePianoRollCard(it);
-    //   pianoRollContainer.appendChild(cardDiv);
-    // const roll = new PianoRoll({ svgElement: svg, sequence: [...partData] });
-    // console.log(`pushing roll id[${it}]`);
     rolls.push({ sequence: [...partData], id: it });
   }
   return rolls;
@@ -41,44 +36,43 @@ export const PRollsPage = () => {
   const [reload, setReload] = useState(true);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [selectedId, setSelectedId] = useState(false);
   const [pRolls, setPRolls] = useState([]);
 
   useEffect(() => {
-    if (reload) {
+    if (reload == true) {
+      setPRolls([]);
       const getPRolls = async () => {
         try {
           setError(false);
           setIsLoading(true);
           const data = await loadPianoRollData();
-          //   console.log(separatePRolls(data));
           setPRolls(separatePRolls(data));
         } catch (error) {
           setError(error.message);
         } finally {
           setIsLoading(false);
+          setReload(false);
         }
       };
       getPRolls();
     }
-    // else {
-    //   //   setPRolls([]);
-    //   setIsLoading(false);
-    // }
   }, [reload]);
 
   return (
     <>
+      <h1>PianoRoll frontend coding challenge by Joanna Jasińska</h1>
       {isLoading ? (
-        // <Loader />
-        ""
+        "Loading piano rolls.."
       ) : error ? (
         `Error: ${error}`
       ) : (
         <>
-          <h1>Welcome to PianoRoll frontend coding challenge!</h1>
           <div id="buttonContainer">
-            <LoadPRollsBtn />
+            <LoadPRollsBtn
+              onClick={() => {
+                setReload(true);
+              }}
+            />
           </div>
           <PRollList pRolls={pRolls} />
         </>
@@ -86,18 +80,3 @@ export const PRollsPage = () => {
     </>
   );
 };
-
-{
-  /* <div className="App">
-<nav className="navbar">
-  <div className="logo-container">
-    <img src={logo} className="logo" alt="Logo" />
-  </div>
-</nav>
-<h1>Welcome to PianoRoll frontend coding challenge!</h1>
-<div id="buttonContainer">
-  <LoadPRollsBtn />
-</div>
-<PRollsPage />
-</div> */
-}

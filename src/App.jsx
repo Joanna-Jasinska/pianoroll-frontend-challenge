@@ -1,27 +1,19 @@
+import { Route, Routes } from "react-router";
 import { Suspense } from "react";
-import "./App.css";
-import { Loader } from "./components/Loader/Loader";
 import { SharedLayout } from "./components/SharedLayout/SharedLayout";
 import { PRollsPage } from "./pages/PRollsPage";
-import { Route, Routes } from "react-router";
-// import "./js/piano";
-/* <img src={logo} className="App-logo" alt="logo" /> */
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 function App() {
   return (
-    <Suspense fallback={<Loader />}>
+    <Suspense fallback={"Loading Piano Rolls.."}>
       <Routes>
-        <Route path="/" element={<SharedLayout />}>
+        <Route path="piano" element={<SharedLayout />} />
+        <Route path="/" element={<PRollsPage />}>
           <Route index element={<PRollsPage />} />
-          <Route path="piano" element={<PRollsPage />} />
-          {/* <Route path="credits" element={<CreditsPage />} />
-          <Route path="movies" element={<SearchMoviesPage />}></Route>
-          <Route path="movies/:movieId" element={<MovieInfo />}>
-            <Route path="cast" element={<CastList />} />
-            <Route path="reviews" element={<ArticleList />} />
-          </Route>
-          <Route path="*" element={<NotFoundPage />} /> */}
+          <Route path=":rollId" element={<PRollsPage />} />
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>
   );

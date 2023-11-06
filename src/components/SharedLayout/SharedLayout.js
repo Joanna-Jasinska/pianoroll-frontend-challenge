@@ -8,7 +8,6 @@ export const SharedLayout = () => {
       <main className={css.pageContent} id="home">
         <Outlet />
       </main>
-      {/* <footer className="footer" id="footer" /> */}
     </>
   );
 };

@@ -2,6 +2,7 @@
   "name": "pianoroll-frontend-challenge",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://joanna-jasinska.github.io/pianoroll-frontend-challenge/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",

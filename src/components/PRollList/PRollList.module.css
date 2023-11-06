@@ -5,6 +5,17 @@
 
   text-align: center;
   box-sizing: border-box;
-  margin: 0px;
-  padding: 0px;
+  margin: 0px auto;
+  padding: 10px;
+  background-color: bisque;
+  overflow: hidden;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1vw;
+  margin: 1vw;
+  width: calc(100% - 2vw);
+  /* height: calc(33% - 4vw); */
 }
