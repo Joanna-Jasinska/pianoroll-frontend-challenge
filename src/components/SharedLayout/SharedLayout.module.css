@@ -1,0 +1,19 @@
+.page {
+  min-height: 100vh;
+}
+
+::selection {
+  color: #fff;
+  background: #885698;
+}
+.pageContent {
+  padding: 1rem;
+}
+.themeDark {
+  color: #919191;
+  background-color: #161117;
+}
+.themeDark ::selection {
+  color: #a59caa;
+  background: #39303d;
+}

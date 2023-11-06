@@ -1,0 +1,36 @@
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Mulish", sans-serif;
+  cursor: default;
+  background-color: #f0f0f0;
+  color: #1c1c1a;
+  height: 100vh; /* Use viewport height instead of 100% to occupy full screen height */
+  text-align: center;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  overflow: auto;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 42px;
+}

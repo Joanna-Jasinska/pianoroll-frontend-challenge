@@ -1,5 +1,10 @@
 # PianoRoll Frontend Task
 
+## How To Run
+
+npm install
+npm start
+
 ## Introduction
 
 You will be building on top of a demo code that generates a widget for browsing Piano Rolls - the core element of [Piano Roll](https://pianoroll.io).
@@ -102,6 +107,3 @@ Your task is to implement a tool or an overlay on the piano roll that allows use
 1. **Functionality**: The selection mechanism should work as described, allowing users to select a range on the piano roll.
 2. **User Experience**: The tool should provide a good user experience, with intuitive controls and clear visual feedback.
 3. **Code Quality**: The code should be clean, easy to read, well-organized, and properly documented.
-
-
-
